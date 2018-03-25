@@ -30,6 +30,10 @@ describe 'desalination::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'includes recipe desalination::ubuntu' do
+      expect(chef_run).to include_recipe('desalination::ubuntu')
+    end
   end
 
   context 'When all attributes are default, on CentOS 7.4.1708' do
@@ -43,6 +47,10 @@ describe 'desalination::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'includes recipe desalination::centos' do
+      expect(chef_run).to include_recipe('desalination::redhat')
+    end
   end
 
   context 'When all attributes are default, on CentOS 6.7' do
@@ -55,6 +63,10 @@ describe 'desalination::default' do
 
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
+    end
+
+    it 'includes recipe desalination::centos' do
+      expect(chef_run).to include_recipe('desalination::redhat')
     end
   end
 end
