@@ -16,7 +16,7 @@ jobs:
           command: chef exec foodcritic . -X spec -f any
       - run:
           name: Chefspec
-          command: chef exec rspec -P spec/**/*_spec.rc --tty --color
+          command: chef exec rspec -P spec/**/*_spec.rb --tty --color
       - run:
           name: Kitchen-ci
           command: echo chef exec kitchen test --destory always
