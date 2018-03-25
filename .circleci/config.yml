@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: chef/chefdk:2.4.17
+      - image: chef/chefdk:2.5.8
     steps:
       - checkout
       - run:
