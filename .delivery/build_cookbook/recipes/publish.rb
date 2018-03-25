@@ -2,7 +2,7 @@
 # Cookbook:: build_cookbook
 # Recipe:: publish
 #
-# Copyright:: 2018, Jon
+# Copyright:: 2018, Jon Middleton
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

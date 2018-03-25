@@ -1,5 +1,5 @@
 name 'build_cookbook'
-maintainer 'Jon'
+maintainer 'Jon Middleton'
 maintainer_email 'jjm@geeky-and-blonde.me.uk'
 license 'apachev2'
 version '0.1.0'

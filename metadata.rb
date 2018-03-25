@@ -1,5 +1,5 @@
 name 'desalination'
-maintainer 'Jon'
+maintainer 'Jon Middleton'
 maintainer_email 'jjm@geeky-and-blonde.me.uk'
 license 'Apache-2.0'
 description 'Installs/Configures desalination'
