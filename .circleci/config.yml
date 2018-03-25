@@ -2,12 +2,21 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:16.04
+      - image: chef/chefdk:2.4.17
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Berkshelf Install
+          command: chef exec berks install
       - run:
-          name: Print the Current Time
-          command: date
+          name: Chef Cookstyle
+          command: chef exec cookstyle
+      - run:
+          name: Chef Foodcritic
+          command: chef exec foodcritic . -X spec -f any
+      - run:
+          name: Chefspec
+          command: chef exec rspec -P spec/**/*_spec.rc --tty --color
+      - run:
+          name: Kitchen-ci
+          command: echo chef exec kitchen test --destory always
