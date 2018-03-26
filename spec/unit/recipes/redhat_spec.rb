@@ -1,6 +1,6 @@
 
 # Cookbook:: desalination
-# Spec:: ubuntu
+# Spec:: redhat
 #
 # Copyright:: 2018, Jon Middleton
 #
@@ -18,12 +18,12 @@
 
 require 'spec_helper'
 
-describe 'desalination::ubuntu' do
-  context 'When all attributes are default, on Ubuntu 16.04' do
+describe 'desalination::redhat' do
+  context 'When all attributes are default, on Centos 7.4.1708' do
     let(:chef_run) do
       # for a complete list of available platforms and versions see:
       # https://github.com/customink/fauxhai/blob/master/PLATFORMS.md
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
+      runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '7.4.1708')
       runner.converge(described_recipe)
     end
 
@@ -39,19 +39,17 @@ describe 'desalination::ubuntu' do
       expect(chef_run).to disable_service('salt-minion')
     end
 
-    it 'purges salt-minion package' do
-      expect(chef_run).to purge_package('salt-minion')
+    it 'removes salt-minion package' do
+      expect(chef_run).to remove_package('salt-minion')
     end
 
-    it 'purges salt-common package' do
-      expect(chef_run).to purge_package('salt-common')
+    it 'removes salt package' do
+      expect(chef_run).to remove_package('salt')
     end
 
-    it 'deletes /etc/apt/sources.list.d/saltstack.list' do
-      expect(chef_run).to delete_file('/etc/apt/sources.list.d/saltstack.list')
+    it 'removes salt-repo package' do
+      expect(chef_run).to remove_package('salt-repo')
     end
-
-    it 'removes SALTSTACK-GPG-KEY.pub apt-key'
 
     it 'deletes /etc/salt' do
       expect(chef_run).to delete_directory('/etc/salt')
