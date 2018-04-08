@@ -12,7 +12,5 @@ source_url 'https://github.com/jjm/desalination'
 
 supports 'ubuntu', '14.04'
 supports 'ubuntu', '16.04'
-
-# Support for Centos coming later!
-# supports 'centos', '>=6'
-# supports 'redhat', '>=6'
+supports 'centos', '>=6'
+supports 'redhat', '>=6'
