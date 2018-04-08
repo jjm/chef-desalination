@@ -2,9 +2,9 @@ name 'desalination'
 maintainer 'Jon Middleton'
 maintainer_email 'jjm@geeky-and-blonde.me.uk'
 license 'Apache-2.0'
-description 'Installs/Configures desalination'
-long_description 'Installs/Configures desalination'
-version '0.1.0'
+description 'Removes salt-minion from a Chef Node.'
+long_description 'A cookbook for completing the migration from SaltStack to Chef by removing the SaltStack client (salt-minion) from a chef node.'
+version '0.1.1'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 issues_url 'https://github.com/jjm/desalination/issues'
