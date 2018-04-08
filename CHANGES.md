@@ -1,5 +1,8 @@
 # CHANGES
 
+## v0.1.2
+- Fix `xsissues_url` and `source_url` in `metadata.rb`.
+
 ## v0.1.1
 - Add `CONTRIBUTING.md` and `TESTING.md` files.
 - Improve the `description` and `long_description`.

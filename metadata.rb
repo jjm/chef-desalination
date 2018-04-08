@@ -7,8 +7,8 @@ long_description 'A cookbook for completing the migration from SaltStack to Chef
 version '0.1.1'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
-issues_url 'https://github.com/jjm/desalination/issues'
-source_url 'https://github.com/jjm/desalination'
+issues_url 'https://github.com/jjm/chef-desalination/issues'
+source_url 'https://github.com/jjm/chef-desalination'
 
 supports 'ubuntu', '14.04'
 supports 'ubuntu', '16.04'
