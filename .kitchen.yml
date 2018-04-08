@@ -46,7 +46,7 @@ platforms:
         - RUN yum -y install which initscripts net-tools
         - RUN yum install -y https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el6.noarch.rpm
         - RUN yum install -y salt-minion
-
+        - RUN systemctl enable salt-minion.service
 suites:
   - name: default
     run_list:
