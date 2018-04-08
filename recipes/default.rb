@@ -19,8 +19,6 @@
 case node['platform']
 when 'ubuntu'
   include_recipe 'desalination::ubuntu'
-
 when 'redhat', 'centos'
   include_recipe 'desalination::redhat'
-
 end
