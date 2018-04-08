@@ -1,7 +1,7 @@
 # CHANGES
 
 ## v0.1.2
-- Fix `xsissues_url` and `source_url` in `metadata.rb`.
+- Fix `issues_url` and `source_url` in `metadata.rb`.
 - Fix creating kitchen image on Centos 6.
 
 ## v0.1.1
