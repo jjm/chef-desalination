@@ -15,3 +15,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+service 'salt-minion' do
+  action [:stop, :disable]
+end
+
+package 'salt-minion' do
+  action :remove
+end
+
+package 'salt' do
+  action :remove
+end
+
+directory '/etc/salt' do
+  action :delete
+  recursive true
+end
+
+package 'salt-repo' do
+  action :remove
+end
