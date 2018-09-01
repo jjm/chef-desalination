@@ -3,6 +3,7 @@ pipeline:
     image: chef/chefdk:2.5.8
     commands:
       - chef exec berks install
+
   Cookstyle:
     image: chef/chefdk:2.5.8
     group: lint
@@ -31,6 +32,7 @@ pipeline:
       - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
       - apt-get update
       - apt-get install -y docker-ce
+      - sleep 15
       - chef exec kitchen test --destory always
 
 services:
