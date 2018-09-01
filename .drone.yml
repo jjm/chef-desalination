@@ -19,8 +19,9 @@ pipeline:
     group: lint
     commands:
       - chef exec rspec -P spec/**/*_spec.rb --tty --color
-  kitchen-test:
+  kitchen-test-ubuntu-1604:
     image: chef/chefdk:2.5.8
+    group: kitchen-test
     #image: docker:18.04.0-ce-dind
     environment:
       - DOCKER_HOST=tcp://docker:2375
@@ -33,7 +34,24 @@ pipeline:
       - apt-get update
       - apt-get install -y docker-ce
       - sleep 5
-      - chef exec kitchen test all
+      - chef exec kitchen test default-ubuntu-1604
+  kitchen-test-ubuntu-1404:
+    image: chef/chefdk:2.5.8
+    group: kitchen-test
+    #image: docker:18.04.0-ce-dind
+    environment:
+      - DOCKER_HOST=tcp://docker:2375
+    commands:
+      - whoami
+      - apt-get update
+      - apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+      - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+      - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+      - apt-get update
+      - apt-get install -y docker-ce
+      - sleep 5
+      - chef exec kitchen test default-ubuntu-1404
+
 
 services:
   docker:
