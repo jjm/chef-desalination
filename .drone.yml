@@ -20,5 +20,13 @@ pipeline:
       - chef exec rspec -P spec/**/*_spec.rb --tty --color
   kitchen-test:
     image: chef/chefdk:2.5.8
+    environment:
+      - DOCKER_HOST=tcp://docker:2375
     commands:
       - chef exec kitchen test --destory always
+
+services:
+  docker:
+    image: docker:18.04.0-ce-dind
+    environment:
+    command: [ --storage-driver=overlay2]
