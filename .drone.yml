@@ -3,7 +3,6 @@ pipeline:
     image: chef/chefdk:2.5.8
     commands:
       - chef exec berks install
-      - chef exec bundle install kitchen-dokken
   Cookstyle:
     image: chef/chefdk:2.5.8
     group: lint
