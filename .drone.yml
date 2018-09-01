@@ -24,8 +24,9 @@ pipeline:
     environment:
       - DOCKER_HOST=tcp://docker:2375
     commands:
-      - sudo apt-get update
-      - curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
+      - whoami
+      - apt-get update
+      - curl -L https://www.opscode.com/chef/install.sh | bash -s -- -P chefdk
       - echo chef exec kitchen test --destory always
 
 services:
