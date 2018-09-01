@@ -1,9 +1,24 @@
 pipeline:
-  backend:
+  Build:
     image: chef/chefdk:2.5.8
     commands:
       - chef exec berks install
+  Cookstyle:
+    image: chef/chefdk:2.5.8
+    group: lint
+    commands:
       - chef exec cookstyle
+  Foodcritic:
+    image: chef/chefdk:2.5.8
+    group: lint
+    commands:
       - chef exec foodcritic . -X spec -f any
+  Rspec:
+    image: chef/chefdk:2.5.8
+    group: lint
+    commands:
       - chef exec rspec -P spec/**/*_spec.rb --tty --color
+  kitchen-test:
+    image: chef/chefdk:2.5.8
+    commands:
       - echo chef exec kitchen test --destory always
