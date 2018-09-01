@@ -33,7 +33,7 @@ pipeline:
       - apt-get update
       - apt-get install -y docker-ce
       - sleep 16
-      - chef exec kitchen test --destory always
+      - chef exec kitchen test ubuntu-16.04
 
 services:
   docker:
