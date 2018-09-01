@@ -32,7 +32,7 @@ pipeline:
       - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
       - apt-get update
       - apt-get install -y docker-ce
-      - sleep 15
+      - sleep 16
       - chef exec kitchen test --destory always
 
 services:
